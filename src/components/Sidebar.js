@@ -1,41 +1,66 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BsSpeedometer2 } from "react-icons/bs";
-import { MdShowChart } from "react-icons/md";
-import { GiCardExchange } from "react-icons/gi";
-import { BiCommand } from "react-icons/bi";
-import { BiGridAlt } from "react-icons/bi";
+import Main from "./Main";
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import SidebarMenu from "./sidebarMenu";
 import { useNavigate } from "react-router-dom";
 
+// logo
+// import Logo from "../assets/img/uni-logo.svg";
+import Logo from "../assets/svg-components/Logo";
+import UniLogo from "../assets/img/uni-koblenz-logo.png";
+// icons for departments
+import LetterD from "../assets/img/letter-d.png";
+import LetterA from "../assets/img/letter-a.png";
+import LetterB from "../assets/img/letter-b.png";
+import LetterG from "../assets/img/letter-g.png";
+import LetterH from "../assets/img/letter-h.png";
+import LetterE from "../assets/img/letter-e.png";
+import LetterF from "../assets/img/letter-f.png";
+import Library from "../assets/img/library.png";
+
 function Sidebar({ children }) {
   const routes = [
     {
-      path: "/",
-      name: "Aspect Scores",
-      icon: <BsSpeedometer2 />,
+      path: "/library",
+      name: "Library",
+      icon: <img src={Library} />,
     },
     {
-      path: "/benchmark",
-      name: "Benchmark",
-      icon: <BiCommand />,
+      path: "/a-block",
+      name: "A Block",
+      icon: <img src={LetterA} />,
     },
     {
-      path: "/time-series",
-      name: "Time Series",
-      icon: <MdShowChart />,
+      path: "/b-block",
+      name: "B Block",
+      icon: <img src={LetterB} />,
     },
     {
-      path: "/driver-analysis",
-      name: "Driver Analysis",
-      icon: <GiCardExchange />,
+      path: "/d-block",
+      name: "D Block",
+      icon: <img src={LetterD} />,
     },
     {
-      path: "/aspect-details",
-      name: "Aspect Details",
-      icon: <BiGridAlt />,
+      path: "/e-block",
+      name: "E Block",
+      icon: <img src={LetterE} />,
+    },
+    {
+      path: "/f-block",
+      name: "F Block",
+      icon: <img src={LetterF} />,
+    },
+    {
+      path: "/g-block",
+      name: "G Block",
+      icon: <img src={LetterG} />,
+    },
+    {
+      path: "/h-block",
+      name: "H Block",
+      icon: <img src={LetterH} />,
     },
   ];
   const [isOpen, setIsOpen] = useState(false);
@@ -67,8 +92,8 @@ function Sidebar({ children }) {
 
   return (
     <>
-      <div className='flex flex-row  w-full'>
-        <div className='bg-black text-white h-[100%]'>
+      <div className='flex flex-row fixed w-full sidebar-container z-10 overflow-y-scroll'>
+        <div className='bg-black text-white  z-20'>
           <motion.div
             animate={{
               width: isOpen ? "200px" : "45px",
@@ -79,7 +104,7 @@ function Sidebar({ children }) {
                 damping: 10,
               },
             }}
-            className='bg-black text-white h-screen overflow-y-auto'
+            className='bg-black text-white overflow-y-scroll'
           >
             <div className='flex items-center  justify-center px-2.5 py-3'>
               <AnimatePresence>
@@ -92,7 +117,7 @@ function Sidebar({ children }) {
                     className='flex mx-auto text-3xl hover:cursor-pointer'
                     onClick={routeChange}
                   >
-                    ReQiew
+                    <img src={UniLogo}></img>
                   </motion.h1>
                 )}
                 <div className='text-xl mt-4 mb-4 float-right hover:cursor-pointer'>
@@ -155,7 +180,10 @@ function Sidebar({ children }) {
             </section>
           </motion.div>
         </div>
-        <main className='w-screen  overflow-y-scroll'>{children}</main>
+        <Main
+          className='w-screen  overflow-y-scroll p-0'
+          children={children}
+        ></Main>
       </div>
     </>
   );

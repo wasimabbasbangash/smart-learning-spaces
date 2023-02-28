@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  height: 100%;
+}
 
 .active {
   background: white;
@@ -15,6 +18,16 @@
 
 .small-active {
   background: white;
+  border: solid 2px #c51c29;
   color: black;
   padding: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
 }
