@@ -47,6 +47,7 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
       setIsMenuOpen(false);
     }
   }, [isOpen]);
+
   return (
     <div>
       <div
@@ -82,7 +83,7 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
             <FaAngleDown />
           </motion.div>
         )}
-      </div>{" "}
+      </div>
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -96,7 +97,7 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
               <motion.div variants={menuItemAnimation} key={i} custom={i}>
                 <NavLink
                   to={subRoute.path}
-                  className='flex text-white space-y-8 py-2 mt-8 px-4'
+                  className='flex text-white space-y-2 py-2  px-4 '
                 >
                   <div className='icon'>{subRoute.icon}</div>
                   <motion.div className='whitespace-nowrap text-md'>

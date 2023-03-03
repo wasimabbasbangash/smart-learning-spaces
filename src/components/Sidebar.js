@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import Main from "./Main";
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 import SidebarMenu from "./sidebarMenu";
 import { useNavigate } from "react-router-dom";
 
 // logo
 // import Logo from "../assets/img/uni-logo.svg";
-import Logo from "../assets/svg-components/Logo";
+import WhiteLogo from "../assets/img/uni-koblenz-logo-white.png";
 import UniLogo from "../assets/img/uni-koblenz-logo.png";
 // icons for departments
 import LetterD from "../assets/img/letter-d.png";
@@ -92,8 +93,8 @@ function Sidebar({ children }) {
 
   return (
     <>
-      <div className='flex flex-row fixed w-full sidebar-container z-10 overflow-y-scroll'>
-        <div className='bg-black text-white  z-20'>
+      <div className='flex flex-row fixed w-full overflow-y-scroll sidebar-container z-10 '>
+        <div className='bg-[#890000] text-white  z-20'>
           <motion.div
             animate={{
               width: isOpen ? "200px" : "45px",
@@ -104,9 +105,10 @@ function Sidebar({ children }) {
                 damping: 10,
               },
             }}
-            className='bg-black text-white overflow-y-scroll'
+            className='bg-[#890000] text-white overflow-y-scroll'
           >
-            <div className='flex items-center  justify-center px-2.5 py-3'>
+            <div className='flex items-center border-b-[px] border-[#C61D2A] justify-center px-2.5 py-3'>
+              {/* uni logo in side nav */}
               <AnimatePresence>
                 {isOpen && (
                   <motion.h1
@@ -117,11 +119,21 @@ function Sidebar({ children }) {
                     className='flex mx-auto text-3xl hover:cursor-pointer'
                     onClick={routeChange}
                   >
-                    <img src={UniLogo}></img>
+                    <img className='w-[70%] mx-auto' src={WhiteLogo}></img>
                   </motion.h1>
                 )}
                 <div className='text-xl mt-4 mb-4 float-right hover:cursor-pointer'>
-                  <FaBars onClick={toggle} className='pt-2' />
+                  {isOpen ? (
+                    <BsFillCaretLeftFill
+                      onClick={toggle}
+                      className='pt-2 hover:scale-150 transition-all ease-in-out delay-50 duration-200'
+                    />
+                  ) : (
+                    <BsFillCaretRightFill
+                      onClick={toggle}
+                      className='pt-2 hover:scale-150 transition-all ease-in-out delay-50 duration-200'
+                    />
+                  )}
                 </div>
               </AnimatePresence>
             </div>
@@ -129,7 +141,7 @@ function Sidebar({ children }) {
             <section
               className={
                 isOpen
-                  ? "mt-8  mx-4 flex flex-col  space-y-8"
+                  ? "mt-2  mx-4 flex flex-col  space-y-4"
                   : "flex flex-col  space-y-8"
               }
             >
@@ -151,14 +163,14 @@ function Sidebar({ children }) {
                     key={index}
                     className={
                       isOpen
-                        ? "flex px-3 py-2 text-xl text-white  space-x-4 border-transparent border-solid border-2 transition-all ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 duration-300"
-                        : "flex px-3 text-md py-2 text-white  border-transparent border-solid border-2 transition-all ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 duration-300"
+                        ? "flex px-3 py-2 text-xl text-white  space-x-4 border-transparent border-solid border-2 transition-all ease-in-out   hover:-translate-y-1 hover:scale-110 duration-300 "
+                        : "flex px-3 text-md py-2 text-white  border-transparent border-solid border-2 transition-all ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300 "
                     }
                     activeClassName={
                       isOpen ? "active " : "active p-0 rounded-full"
                     }
                   >
-                    <div className='flex justify-center space-x-4 items-center'>
+                    <div className='flex justify-center space-x-4 items-center '>
                       <div className='icon'>{route.icon}</div>
                       <AnimatePresence>
                         {isOpen && (
@@ -181,7 +193,7 @@ function Sidebar({ children }) {
           </motion.div>
         </div>
         <Main
-          className='w-screen  overflow-y-scroll p-0'
+          className='w-screen overflow-y-hidden p-0'
           children={children}
         ></Main>
       </div>

@@ -9,8 +9,9 @@ function Library() {
 
   const fetchData = async () => {
     await axios
-      .get("http://localhost:3001/lora")
+      .get("http://localhost:3001/get-library-data")
       .then((res) => {
+        console.log(res);
         setRooms(res.data);
         // if (count === 5) {
         //   let roomsData = rooms;

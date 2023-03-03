@@ -9,38 +9,42 @@ import EBuilding from "./pages/EBuilding";
 import FBuilding from "./pages/FBuilding";
 import GBuilding from "./pages/GBuilding";
 import HBuilding from "./pages/HBuilding";
+import Dashboard from "./pages/Dashboard";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className='App bg-white relative flex flex-row justify-start overflow-y-scroll overflow-x-clip flex-wrap relative'>
+    <div className='App bg-white flex flex-row justify-start overflow-y-hidden overflow-x-clip flex-wrap relative'>
       <BrowserRouter>
         <Sidebar>
           <Routes>
+            <Route path='/' element={<Dashboard />}>
+              Dashboard
+            </Route>
             <Route path='/library' element={<Library />}>
-              Aspect Scores
+              Library
             </Route>
             <Route path='/a-block' element={<ABuilding />}>
-              Bench Mark
+              A Building
             </Route>
             <Route path='/b-block' element={<BBuilding />}>
-              Time Series
+              B Building
             </Route>
             <Route path='/d-block' element={<DBuilding />}>
-              Driver Analysis
+              D Building
             </Route>
             <Route path='/e-block' element={<EBuilding />}>
-              Aspect Analysis
+              E Building
             </Route>
             <Route path='/f-block' element={<FBuilding />}>
-              Aspect Analysis
+              F Building
             </Route>
             <Route path='/g-block' element={<GBuilding />}>
-              Aspect Analysis
+              G Building
             </Route>
             <Route path='/h-block' element={<HBuilding />}>
-              Aspect Analysis
+              H Building
             </Route>
           </Routes>
         </Sidebar>

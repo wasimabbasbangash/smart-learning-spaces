@@ -1,14 +1,15 @@
 import React from "react";
 
 import FullLogo from "../assets/img/full_logo.png";
+import Logo from "../assets/img/uni-koblenz-logo.png";
 // icons for departments
 import { BsFillCircleFill } from "react-icons/bs";
 
 function Main({ children }) {
   return (
-    <div className='h-screen w-full flex  md:justify-start  justify-start items-center overflow-y:scroll flex-col gap-y-10'>
+    <div className='h-screen w-full flex  md:justify-start  justify-start items-center  overflow-x-scroll flex-col gap-y-10'>
       {/* information bar  */}
-      <div className=' flex flex-row  w-full gap-y-10 justify-evenly shadow-md p-4 md:fixed md:top-0'>
+      <div className=' flex flex-row  w-full gap-y-10 justify-evenly shadow-md p-4 '>
         <h1 className='flex justify-start items-center'>
           <BsFillCircleFill className='text-[red] text-3xl font-bold mr-2' /> =
           Occupied
@@ -21,7 +22,10 @@ function Main({ children }) {
           = Available
         </h1>
       </div>
-      <div className='h-screen w-full flex  md:justify-start  justify-start items-center  flex-col gap-y-10'>
+      <div className='fixed top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] opacity-20 z-[-10] -rotate-45'>
+        <img src={Logo}></img>
+      </div>
+      <div className='h-screen w-full flex  md:justify-start  justify-start items-center   overflow-y-scroll flex-col gap-y-10'>
         {children}
       </div>
       <img
