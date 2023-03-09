@@ -9,7 +9,7 @@ function Library() {
 
   const fetchData = async () => {
     await axios
-      .get("http://localhost:3001/get-library-data")
+      .get("http://141.26.157.131/get-library-data")
       .then((res) => {
         console.log(res);
         setRooms(res.data);
