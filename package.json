@@ -1,8 +1,8 @@
 {
-  "name": "statistica-project",
+  "name": "smart-learning-spaces",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wasimabbasbangash.github.io/taskForStatistica/",
+  "homepage": "https://github.com/wasimabbasbangash/smart-learning-spaces",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
