@@ -9,21 +9,9 @@ function Library() {
 
   const fetchData = async () => {
     await axios
-      .get("http://141.26.157.131:3000/get-library-data")
+      .get("http://localhost:3001/get-library-data")
       .then((res) => {
-        console.log(res);
         setRooms(res.data);
-        // if (count === 5) {
-        //   let roomsData = rooms;
-        //   roomsData.shift();
-        //   roomsData.push(res.data);
-        //   setRooms(roomsData);
-        //   console.log(rooms);
-        // } else {
-        //   setRooms((rooms) => [...rooms, res.data]);
-        //   console.log(rooms);
-        //   setCount(count + 1);
-        // }
       })
       .then((err) => {
         console.log(err);

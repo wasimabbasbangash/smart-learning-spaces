@@ -11,7 +11,7 @@ function Main({ children }) {
       {/* information bar  */}
       <div className=' flex flex-row  w-full gap-y-10 justify-evenly shadow-md p-4 '>
         <h1 className='flex justify-start items-center'>
-          <BsFillCircleFill className='text-[red] text-3xl font-bold mr-2' /> =
+          <BsFillCircleFill className='text-[red] text-3xl font-bold mr-2' />
           Occupied
         </h1>
         <h1
@@ -19,7 +19,7 @@ function Main({ children }) {
           data-tooltip-target='tooltip-animation'
         >
           <BsFillCircleFill className='text-[green] text-3xl font-bold mr-2' />{" "}
-          = Available
+          Available
         </h1>
       </div>
       <div className='fixed top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] opacity-20 z-[-10] -rotate-45'>
