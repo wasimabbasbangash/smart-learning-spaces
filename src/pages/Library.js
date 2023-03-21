@@ -1,21 +1,31 @@
 import Room from "../components/Room";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { ApiRequest } from "../services/ApiService";
+
+const REACT_APP_BASE_URL = "http://141.26.157.131/";
 
 function Library() {
   const [rooms, setRooms] = useState();
-  const [availability, setAvailability] = useState([false]);
-  const [count, setCount] = useState(0);
 
   const fetchData = async () => {
     await axios
-      .get("http://localhost:3001/get-library-data")
+      .get(REACT_APP_BASE_URL + "get-library-data")
       .then((res) => {
         setRooms(res.data);
       })
       .then((err) => {
         console.log(err);
       });
+
+    // const { data, error, isLoaded } = ApiRequest(
+    //   "https://jsonplaceholder.typicode.com/todos"
+    // );
+    // if (data) {
+    //   setRooms(data);
+    // } else {
+    //   console.log(error);
+    // }
   };
 
   // execute every 10 seconds
@@ -23,7 +33,6 @@ function Library() {
     const interval = setInterval(() => {
       fetchData();
     }, 10000);
-
     return () => {
       clearInterval(interval);
     };
